@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j4k-Wh-90u">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--音乐人-->
+        <scene sceneID="Kpc-Mg-gKZ">
+            <objects>
+                <tableViewController id="AtC-wM-JxH" customClass="AddressBookTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="r9a-0i-aDL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addressBook" id="mT9-RF-5UD">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mT9-RF-5UD" id="AXc-ao-p82">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AtC-wM-JxH" id="dC1-My-i5y"/>
+                            <outlet property="delegate" destination="AtC-wM-JxH" id="Hgi-ee-mw9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="音乐人" id="rpe-2y-gK2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="esF-TG-rnu">
+                            <connections>
+                                <action selector="addSinger:" destination="AtC-wM-JxH" id="0hN-qw-pB1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="rPM-zW-U4F" kind="show" identifier="PersonSegue" id="tDq-Ew-3lT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpV-sI-fUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1451" y="-18"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="HG6-W1-q29">
+            <objects>
+                <tableViewController title="Title" id="rPM-zW-U4F" customClass="AddSingerTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bfB-NJ-U2b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="eKd-BG-76H">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Pco-Gp-kyt">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pco-Gp-kyt" id="Upk-YN-Y9k">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入歌手" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-qb-Jtw">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mkD-qb-Jtw" firstAttribute="top" secondItem="Upk-YN-Y9k" secondAttribute="topMargin" constant="-1" id="3T8-C3-cPV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mkD-qb-Jtw" secondAttribute="trailing" id="5Jd-g3-FEp"/>
+                                                <constraint firstItem="mkD-qb-Jtw" firstAttribute="leading" secondItem="Upk-YN-Y9k" secondAttribute="leadingMargin" id="RuE-Ih-ab6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mkD-qb-Jtw" secondAttribute="bottom" constant="-1" id="btw-R9-py9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eo3-by-UYK">
+                                        <rect key="frame" x="0.0" y="143" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eo3-by-UYK" id="5ZR-rs-gSu">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入歌曲" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nR-vU-AtH">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9nR-vU-AtH" secondAttribute="trailing" id="4Zv-lg-aNG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9nR-vU-AtH" secondAttribute="bottom" constant="-1" id="bri-AX-BES"/>
+                                                <constraint firstItem="9nR-vU-AtH" firstAttribute="top" secondItem="5ZR-rs-gSu" secondAttribute="topMargin" constant="-1" id="tQp-rU-WCk"/>
+                                                <constraint firstItem="9nR-vU-AtH" firstAttribute="leading" secondItem="5ZR-rs-gSu" secondAttribute="leadingMargin" id="wF5-HN-tql"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rPM-zW-U4F" id="Bur-Kv-DsC"/>
+                            <outlet property="delegate" destination="rPM-zW-U4F" id="KRf-Sh-Hww"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="788-gy-Mt4"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Show" id="ru6-8A-dMO">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="7zt-WC-cQa">
+                            <connections>
+                                <action selector="saveBtn:" destination="rPM-zW-U4F" id="2cc-4l-A6b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="singer" destination="mkD-qb-Jtw" id="9aP-08-eIU"/>
+                        <outlet property="songName" destination="9nR-vU-AtH" id="hJw-YZ-Wat"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xoe-s0-6YX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112" y="-18"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="THR-FU-eWK">
+            <objects>
+                <navigationController id="j4k-Wh-90u" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uQV-IC-WLA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AtC-wM-JxH" kind="relationship" relationship="rootViewController" id="NIA-VH-HFO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIh-XK-zFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="-18"/>
+        </scene>
+    </scenes>
+</document>

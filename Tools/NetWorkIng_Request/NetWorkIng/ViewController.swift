@@ -13,13 +13,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlString = "http://www.weather.com.cn/data/sk/101010100.html/"
+        let urlString = "http://127.0.0.1/resources/vedios.json"
         NetWorkingTool.shareTools.request(RequestMethod.GET, urlString: urlString, parameters: nil) { (response, error) -> () in
             //判断是否请求错误，并打印错误信息
             if error != nil{
                 print(error)
                 return
             }
+            
             print(response)
         }
     }
