@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *songName;
 
 @property (nonatomic) AppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *singerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
 
 @end
 

@@ -13,7 +13,7 @@
 #import "Person.h"
 #import "AddSingerTableViewController.h"
 
-@interface AddressBookTableViewController () <NSFetchedResultsControllerDelegate>
+@interface AddressBookTableViewController () <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic) AppDelegate *appDelegate;
 
@@ -56,7 +56,7 @@
 //删除数据
 - (void)deleteSongsWithName:(NSString *)songName {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"songName=%@",songName];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"songName = %@",songName];
     fetchRequest.predicate = pred;
     NSArray *tempArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     //遍历数组，找到数据删除。
@@ -109,6 +109,19 @@
 #pragma mark - FetchedResultsController代理
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //判断后给请求的谓词规定key
+    if (searchText.length > 0) {
+        self.fetchedResultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"singer CONTAINS %@ OR songName CONTAINS %@",searchText,searchText];
+    }else {
+        self.fetchedResultsController.fetchRequest.predicate = nil;
+    }
+    [self.fetchedResultsController performFetch:NULL];
     [self.tableView reloadData];
 }
 

@@ -7,5 +7,6 @@ __FMDB_Select_Custom__ 数据库查询工具类，内部自定义封装了FMDB�
 
 __CoreData通讯录__ 通过CoreData实现的简易通讯录，全部效果未写完，实现过程及<strong>效果</strong>可参看我的博客<http://www.renzcblog.com/2016/01/29/COreData小店/>
 
+__NetWorking__ 网络工具类，封装了官方NSURLSession的GET/POST数据请求，为Objective-C版本。同时封装了JSON和XML格式数据转换。
 
 
